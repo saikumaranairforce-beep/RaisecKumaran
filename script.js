@@ -5,7 +5,7 @@ const questions = [
   { text: "I like to work in teams", category: "S" },
   { text: "I am an ambitious person, I set goals for myself", category: "E" },
   { text: "I like to organize things (files, desks/offices)", category: "C" },
-  // 👉 You can continue adding all 42 questions here
+  // Add remaining questions here from PDF
 ];
 
 const careers = {
@@ -40,13 +40,11 @@ function calculateResults() {
     scores[val]++;
   }
 
-  // Sort and pick top 3
   const sorted = Object.entries(scores).sort((a,b) => b[1]-a[1]);
   const top3 = sorted.slice(0,3).map(item => item[0]);
 
   document.getElementById("interestCode").textContent = top3.join(" - ");
 
-  // Show related careers
   const careerList = document.getElementById("careerList");
   careerList.innerHTML = "";
   top3.forEach(code => {
