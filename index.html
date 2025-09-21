@@ -9,6 +9,7 @@
 <body>
   <div class="container">
     <h1>RIASEC Career Interest Test</h1>
+    <p class="help-text">Kindly select only what you like most preferred and what your inner mind voice says.</p>
     <form id="riasecForm">
       <div id="questions"></div>
       <button type="button" onclick="calculateResults()">See My Results</button>
@@ -17,8 +18,20 @@
     <div id="results" class="hidden">
       <h2>Your Interest Code</h2>
       <p id="interestCode"></p>
-      <h3>Suggested Career Pathways</h3>
-      <ul id="careerList"></ul>
+      <h3>Scores</h3>
+      <ul id="scoreList"></ul>
+      <p class="note">Well done! Your career can be interpreted by an expert. Hence kindly fill the contact form.</p>
+
+      <h3>Contact Form</h3>
+      <form id="contactForm" action="https://raiseckumaran.kit.com/526988826b" method="POST">
+        <label>Name:<br><input type="text" name="name" required></label><br><br>
+        <label>Email:<br><input type="email" name="email" required></label><br><br>
+        <label>Phone:<br><input type="text" name="phone"></label><br><br>
+        <label>Message:<br><textarea name="message" rows="4"></textarea></label><br><br>
+        <!-- Hidden field to hold RIASEC results -->
+        <textarea id="riasecResults" name="riasecResults" style="display:none;"></textarea>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </div>
   <script src="script.js"></script>
