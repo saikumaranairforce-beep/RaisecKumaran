@@ -68,25 +68,20 @@ function calculateResults() {
     scores[val]++;
   }
 
-  const sorted = Object.entries(scores).sort((a,b) => b[1]-a[1]);
-  const top3 = sorted.slice(0,3).map(item => item[0]);
-
-  document.getElementById("interestCode").textContent = top3.join(" - ");
-
   // show scores
-  const scoreList = document.getElementById("scoreList");
-  scoreList.innerHTML = "";
-  latestResults = "";
-  sorted.forEach(([key,val]) => {
-    const li = document.createElement("li");
-    li.textContent = key + ": " + val;
-    scoreList.appendChild(li);
-    latestResults += key + ": " + val + "\n";
-  });
+  const scoreRow = document.getElementById("scoreRow");
+  scoreRow.innerHTML = "";
+  let resultLine = Object.entries(scores).map(([key, val]) => key + ": " + val).join("   ");
+  const box = document.createElement("div");
+  box.style.padding = "12px 18px";
+  box.style.background = "#e3f2fd";
+  box.style.borderRadius = "8px";
+  box.style.fontWeight = "bold";
+  box.style.color = "#1976d2";
+  box.style.fontSize = "1.08em";
+  box.style.boxShadow = "0 2px 8px #bbb";
+  box.textContent = resultLine;
+  scoreRow.appendChild(box);
 
-  // put results in hidden field for submission
-  document.getElementById("riasecResults").value = "RIASEC Results (High to Low):\n" + latestResults +
-    "\nTop 3 Interest Code: " + top3.join(" - ");
-
-  document.getElementById("results").classList.remove("hidden");
+  document.getElementById("results").style.display = "block";
 }

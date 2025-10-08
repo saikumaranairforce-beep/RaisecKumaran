@@ -5,33 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RIASEC Test</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e0f7fa 0%, #e8f5e9 100%);
+    }
+    .preface {
+      max-width: 700px;
+      margin: 32px auto 24px auto;
+      background: rgba(255,255,255,0.8);
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #b2dfdb;
+      padding: 24px;
+      font-size: 1.15em;
+      color: #2e7d32;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
+    <div class="preface">
+      <div style="font-size:1.35em;font-weight:bold;color:#1976d2;margin-bottom:10px;">Turning Point</div>
+  Every child is unique, with dreams and ambitions that shape their future. Understanding a child's interests and profiling their strengths helps guide them towards fulfilling careers and personal growth. This RIASEC Career Interest Test is designed to help children discover their true potential and make informed choices for a bright future.
+  <div style="margin-top:18px;font-size:1.08em;color:#1976d2;font-weight:bold;">Excited? Kindly contact saikumaranairforce@gmail.com</div>
+    </div>
     <h1>RIASEC Career Interest Test</h1>
     <p class="help-text">Kindly select only what you like most preferred and what your inner mind voice says.</p>
     <form id="riasecForm">
       <div id="questions"></div>
-      <button type="button" onclick="calculateResults()">See My Results</button>
+  <button type="button" onclick="calculateResults()">See My Results</button>
+  <button type="button" onclick="resetForm()" style="margin-left:16px;background:#e57373;color:#fff;border:none;border-radius:8px;padding:8px 18px;font-weight:bold;box-shadow:0 2px 8px #bbb;">RESET</button>
     </form>
-
-    <div id="results" class="hidden">
-      <h2>Your Interest Code</h2>
-      <p id="interestCode"></p>
-      <h3>Scores</h3>
-      <ul id="scoreList"></ul>
-      <p class="note">Well done! Your career can be interpreted by an expert. Hence kindly fill the contact form.</p>
-
-      <h3>Contact Form</h3>
-      <form id="contactForm" action="https://raiseckumaran.kit.com/526988826b" method="POST">
-        <label>Name:<br><input type="text" name="name" required></label><br><br>
-        <label>Email:<br><input type="email" name="email" required></label><br><br>
-        <label>Phone:<br><input type="text" name="phone"></label><br><br>
-        <label>Message:<br><textarea name="message" rows="4"></textarea></label><br><br>
-        <!-- Hidden field to hold RIASEC results -->
-        <textarea id="riasecResults" name="riasecResults" style="display:none;"></textarea>
-        <button type="submit">Submit</button>
-      </form>
+    <div id="results" style="margin-top:32px;display:none;">
+      <div id="scoreRow" style="display:flex;flex-wrap:wrap;gap:18px;justify-content:center;"></div>
     </div>
   </div>
   <script src="script.js"></script>
